@@ -1,0 +1,25 @@
+@use "./colors" as *; 
+
+@keyframes skeletonShimmer {
+  0% {
+    background-color: $color-grey-lightest;
+  }
+
+  50% {
+    background-color: $color-grey-light;
+  }
+  
+  100% {
+    background-color: $color-grey-lightest;
+  }
+}
+
+@mixin shimmerAnimation {
+  background-color: $color-grey-lightest;
+  animation-name: skeletonShimmer;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  transition: background-color 2s ease-in-out;
+
+  @content;
+}
